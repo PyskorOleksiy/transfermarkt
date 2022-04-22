@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Coach</h1>
+
+<% if (@tournament_club.coach) %>
+  <p>
+    <strong>Name:</strong>
+      <%= @tournament_club.coach.name %>
+  </p>
+
+  <p>
+    <strong>Club:</strong>
+      <%= @tournament_club.club %>
+  </p>
+
+  <p>
+    <strong>Last club:</strong>
+      <%= @tournament_club.coach.last_club %>
+  </p>
+
+  <p>
+    <strong>Age:</strong>
+      <%= @tournament_club.coach.age %>
+  </p>
+
+  <p>
+    <strong>Country:</strong>
+      <%= @tournament_club.coach.country %>
+  </p>
+
+  <p>
+    <strong>Appointed:</strong>
+      <%= @tournament_club.coach.appointed %>
+  </p>
+
+  <p>
+    <strong>Contract until:</strong>
+      <%= @tournament_club.coach.contract_until %>
+  </p>
+
+  <p>
+    <strong>Prefer. formation:</strong>
+      <%= @tournament_club.coach.preferred_formation %>
+  </p>
+
+  <p>
+    <strong>Average term:</strong>
+      <%= "#{'%.2f' % @tournament_club.coach.average_term}" %>
+  </p>
+
+  <p>
+    <strong>Achievements:</strong>
+  </p>
+  <textarea rows="10" cols="45" readonly><%= @tournament_club.coach.achievements %></textarea>
+
+  <br>
+<% end %>
+
+<p>
+  <%= link_to 'Back', tournament_club_path(@tournament_club) %>
+  <%= link_to 'Home Page', root_path %>
+</p>

@@ -1,0 +1,67 @@
+<% require 'faker' 
+%>
+
+<h1>Editing Coach</h1>
+
+<%= form_with model: [ @club, @club.coach] do |form| %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_club %>
+    <%= form.text_field :last_club %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+  </div>
+
+  <% Faker::Address.unique.clear 
+  countries = []
+  for item in 0..242
+    faker = Faker::Address.unique.country
+    countries.push(faker)
+  end
+  countries = countries.map { |c| Array(c).join(", ") }.sort 
+  %>
+
+  <div class="select-field">
+    <%= form.label :country %>
+    <%= form.select :country, countries %>
+  </div>
+
+  <div class="field">
+    <%= form.label :appointed %>
+    <%= form.date_select :appointed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contract_until %>
+    <%= form.date_select :contract_until %>
+  </div>
+
+  <div class="field">
+    <%= form.label :preferred_formation %>
+    <%= form.text_field :preferred_formation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :avrg_coach_term %>
+    <%= form.number_field :avrg_coach_term, value: number_with_precision(form.object.avrg_coach_term, precision: 2), step: 0.01 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :achievements %>
+    <%= form.text_area :achievements, size: "70x10" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', club_coach_path(@club) %>

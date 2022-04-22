@@ -1,0 +1,61 @@
+<% require 'faker'
+%>
+
+<h1>New Player</h1>
+
+<%= form_with model: [ @club, @club.players.build ] do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position %>
+    <%= form.text_field :position %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.number_field :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+  </div>
+
+  <div class="select-field">
+    <%= form.label :cost_type %>
+    <%= form.select :foot, ["left", "right"] %>
+  </div>
+
+  <% Faker::Address.unique.clear
+  countries = []
+  for item in 0..242
+    faker = Faker::Address.unique.country
+    countries.push(faker)
+  end
+  countries = countries.map { |c| Array(c).join(", ") }.sort
+  %>
+
+  <div class="select-field">
+    <%= form.label :country %>
+    <%= form.select :country, countries %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contract_until %>
+    <%= form.date_select :contract_until %>
+  </div>
+
+  <div class="select-field">
+    <%= form.label :market_value %><b>€</b>
+    <%= form.number_field :market_value, value: number_with_precision(form.object.market_value, precision: 2), step: 0.05 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', club_players_path(@club) %>

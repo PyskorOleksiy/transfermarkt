@@ -1,0 +1,2 @@
+module AwaysHelper
+end

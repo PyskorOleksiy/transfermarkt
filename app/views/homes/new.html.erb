@@ -1,0 +1,35 @@
+<h1>New Home</h1>
+
+<%= form_with model: [ @tournament_club, @tournament_club.home_matches.build ] do |form| %>
+
+  <div class="field">
+    <%= form.label :tour %>
+    <%= form.number_field :tour %>
+  </div>
+
+  <div class="field">
+    <%= form.label :match_date %>
+    <%= form.datetime_select :match_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :home_team %>
+    <%= form.text_field :home_team %>
+  </div>
+
+  <div class="field">
+    <%= form.label :result %>
+    <%= form.text_field :result %>
+  </div>
+
+  <div class="field">
+    <%= form.label :away_team %>
+    <%= form.text_field :away_team %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', tournament_club_path(@tournament_club) %>

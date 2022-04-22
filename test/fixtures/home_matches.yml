@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tour: 1
+  home_team: MyString
+  result: MyString
+  away_team: MyString
+  tournament_club: one
+  match_date: 2022-04-11 19:57:52
+
+two:
+  tour: 1
+  home_team: MyString
+  result: MyString
+  away_team: MyString
+  tournament_club: two
+  match_date: 2022-04-11 19:57:52

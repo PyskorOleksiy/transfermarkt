@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Aways</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tournament</th>
+      <th>Tour</th>
+      <th>Match date</th>
+      <th>Home team</th>
+      <th>Result</th>
+      <th>Away team</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @aways.each do |away| %>
+      <tr>
+        <td><%= away.tournament_id %></td>
+        <td><%= away.tour %></td>
+        <td><%= away.match_date %></td>
+        <td><%= away.home_team %></td>
+        <td><%= away.result %></td>
+        <td><%= away.away_team %></td>
+        <td><%= link_to 'Show', away %></td>
+        <td><%= link_to 'Edit', edit_away_path(away) %></td>
+        <td><%= link_to 'Destroy', away, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Away', new_away_path %>

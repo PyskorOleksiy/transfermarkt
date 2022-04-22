@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @player.id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @player.name %>
+</p>
+
+<p>
+  <strong>Club:</strong>
+  <%= @tournament_club.club %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @player.position %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @player.number %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @player.age %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @player.height %> m
+</p>
+
+<p>
+  <strong>Foot:</strong>
+  <%= @player.foot %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @player.country %>
+</p>
+
+<p>
+  <strong>Joined:</strong>
+  <%= @player.joined %>
+</p>
+
+<p>
+  <strong>Contract until:</strong>
+  <%= @player.contract_until %>
+</p>
+
+<p>
+  <strong>Last Club:</strong>
+  <%= @player.last_club %>
+</p>
+
+<p>
+  <strong>Market value €:</strong>
+  <%= number_with_precision(@player.market_value, precision: 2) %>m
+</p>
+
+<%= link_to 'Back', tournament_club_players_path(@tournament_club) %>

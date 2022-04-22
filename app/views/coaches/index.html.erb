@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Coaches</h1>
+
+<table cellspacing="15">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Club Id</th>
+      <th>Last club</th>
+      <th>Age</th>
+      <th>Country</th>
+      <th>Appointed</th>
+      <th>Contract until</th>
+      <th>Prefer. formation</th>
+      <th>Average term</th>
+      <th>Achievements</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tournament_club.coaches.each do |coach| %>
+      <tr>
+        <td><%= coach.id %></td>
+        <td><%= coach.name %></td>
+        <td><%= coach.club_id %></td>
+        <td><%= coach.last_club %></td>
+        <td><%= coach.age %></td>
+        <td><%= coach.country %></td>
+        <td><%= coach.appointed %></td>
+        <td><%= coach.contract_until %></td>
+        <td><%= coach.preferred_formation %></td>
+        <td><%= "#{'%.2f' % @coach.average_term}" %></td>
+        <td><textarea rows="10" cols="45" readonly><%= coach.achievements %></textarea></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Home Page', root_path %>

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tour:</strong>
+  <%= @home_match.tour %>
+</p>
+
+<p>
+  <strong>Match date:</strong>
+  <%= @home_match.match_date.strftime("%d.%m.%Y %H:%M") %>
+</p>
+
+<p>
+  <strong>Home team:</strong>
+  <%= @home_match.home_team %>
+</p>
+
+<p>
+  <strong>Result:</strong>
+  <%= @home_match.result %>
+</p>
+
+<p>
+  <strong>Away team:</strong>
+  <%= @home_match.away_team %>
+</p>
+
+
+<%= link_to 'Destroy', tournament_club_home_match_path(@tournament_club), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Back', tournament_club_path(@tournament_club) %>
